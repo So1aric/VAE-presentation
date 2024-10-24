@@ -8,6 +8,7 @@ drawings:
   persist: false
 transition: fade-out
 overviewSnapshots: true
+colorSchema: dark
 ---
 
 # Variational Autoencoder

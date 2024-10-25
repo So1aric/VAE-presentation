@@ -173,6 +173,59 @@ The expectation term is the decoder loss. It indicates how good the decoder is a
 </v-click>
 
 ---
+
+# Reparameterization
+<div />
+
+We have a loss function now, but it's not differentiable. Because $z$ is a random variable, we cannot backpropagate through it.
+
+<v-click>
+
+The reparameterization trick is that, instead of directly sample $z$ from $\mathcal{N}(\mu, \sigma^2)$, we first sample an $\epsilon$:
+
+$$
+\epsilon \sim \mathcal{N}(0, 1)
+$$
+
+</v-click>
+
+<v-click>
+
+Then we could calculate $z$:
+
+$$
+z = \mu + \sigma \epsilon
+$$
+
+Now $\mu$ and $\sigma$, which have learnable parameters, could be updated through the backpropagated gradient.
+
+</v-click>
+
+<v-click>
+
+Recall: $\mu$,  $\sigma$ and $f_{\theta}(z)$ are neural networks.
+
+</v-click>
+
+---
+
+# Training
+<div />
+
+- Given an $X$, feed it into two neural networks which give us $\mu$ and $\sigma$ respectively.
+- Sample an $\epsilon$ from standard Gaussian $\mathcal{N}(0, I)$.
+- Construct $z$ using $z = \mu + \sigma \epsilon$.
+- Feed $z$ into a neural network $f_{\theta}(z)$.
+- Calculate the total loss.
+- Optimize the loss.
+
+<v-click>
+
+Note: the ouput of the $\sigma$ network could be adjusted to $\log \sigma^2$.
+
+</v-click>
+
+---
 layout: two-cols
 ---
 
@@ -220,9 +273,6 @@ def loss(recon_x, x, mu, logvar):
 ```
 
 ::right::
-
-# Training
-<div />
 
 <img
   src="/pictures/Learning_Curve.png"

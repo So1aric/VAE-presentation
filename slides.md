@@ -159,7 +159,7 @@ $$
 Thus, we could construct the loss function:
 
 $$
-loss = \frac 1 2 \big( tr(\Sigma(X)) + \mu(X)^T\mu(X) - \log \det \Sigma(X) - n + \mathrm{E}_{z \sim Q}[\| X - f_{\theta}(z) \|_2^2] \big)
+loss = \underset{i}{\sum} (\Sigma(X)_i + \mu(X)_i^2 - \log \Sigma(X)_i - 1) + \| X - f_{\theta}(z) \|_2^2
 $$
 
 </v-click>

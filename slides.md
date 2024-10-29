@@ -49,10 +49,10 @@ Usually we hope $z \sim \mathcal{N}(0, I)$ so that we could easily sample some $
 
 <v-click>
 
-We're aiming for a distribution $\theta$ which maximize $P(X)$. Here we replace $f(z, \theta)$ with $P_{\theta}(X|z)$.
+We're aiming for a distribution $\theta$ which maximize $P_{\theta}(X)$.
 
 $$
-P(X) = \int_z P_{\theta}(X|z) P(z) \mathrm{d}z
+P_{\theta}(X) = \int_z P_{\theta}(X|z) P(z) \mathrm{d}z
 $$
 
 </v-click>
@@ -62,7 +62,7 @@ $$
 In VAE, the choice of the distribution $\theta$ is often Gaussian, i.e.,
 
 $$
-P_{\theta}(X|z) = \mathcal{N}(X|f(z, \theta), \sigma^2 * I)
+P_{\theta}(X|z) = P_{\mathcal{N}(f(z, \theta), \sigma^2 * I)}(X)
 $$
 
 </v-click>

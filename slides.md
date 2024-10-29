@@ -82,8 +82,6 @@ For most $z$, $P_{\theta}(X|z)$ will be nearly zero. We want to sample $z$s that
 
 This means that we need a new function $Q(z|X)$ that give us a distribution over $z$s.
 
-The first thing we need to do is relate $\mathrm{E}_{z \sim Q}P(X|z)$ and $P(X)$.
-
 </v-click>
 
 <v-click>

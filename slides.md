@@ -128,7 +128,11 @@ $\mu$ and $\Sigma$ are implemented via neural networks. Here, $\Sigma$ is constr
 Thus, the term $\mathcal{D}[Q(z|X) \| P(z)]$ is now a KL-divergence between two multivariable Gaussian distributions.
 
 $$
-\mathcal{D}[\mathcal{N}(z|\mu(X), \Sigma(X)) \| \mathcal{N}(0, I)] = \frac 1 2 \big ( tr(\Sigma(X)) + \mu(X)^T\mu(X) - \log \det \Sigma(X) - n \big )
+\begin{align}
+   \mathcal{D}[\mathcal{N}(z|\mu(X), \Sigma(X)) \| \mathcal{N}(0, I)]
+&= \frac 1 2 \big ( tr(\Sigma(X)) + \mu(X)^T\mu(X) - \log \det \Sigma(X) - n \big ) \\
+&= \frac 1 2 \underset{i}{\sum} (\Sigma(X)_i + \mu(X)_i^2 - \log \Sigma(X)_i - 1)
+\end{align}
 $$
 
 </v-click>

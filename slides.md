@@ -43,7 +43,7 @@ $$
 
 If $z$ is random and $\theta$ is fixed, then $f(z, \theta)$ is a random variable in the image space $\mathcal{X}$.
 
-Usually we want $z \sim \mathcal{N}(0, I)$.
+Usually we hope $z \sim \mathcal{N}(0, I)$ so that we could easily sample some $z$ and feed it in to the decoder to get an image.
 
 </v-click>
 
@@ -123,7 +123,7 @@ $$
 Q(z|X) = \mathcal{N}(z|\mu(X), \Sigma(X))
 $$
 
-$\vartheta$ is a parameter that could be learned from data, and $\mu$ and $\Sigma$ are implemented via neural networks. Here, $\Sigma$ is constrained to be a diagonal network.
+$\mu$ and $\Sigma$ are implemented via neural networks. Here, $\Sigma$ is constrained to be a diagonal matrix.
 
 <v-click>
 
@@ -166,9 +166,9 @@ $$
 
 We could interpret the loss function as the combination of encoder loss and decoder loss.
 
-The KL-Divergence term is the encoder loss. It indicates how good the encoder is at finding good candidates.
+The KL-Divergence term is the encoder loss. It measures the encoder's ability at finding good $z$s.
 
-The expectation term is the decoder loss. It indicates how good the decoder is at reconstructing $X$ from $z$.
+The expectation term is the decoder loss. It measures the decoder's ability at reconstructing $X$ from $z$.
 
 </v-click>
 
